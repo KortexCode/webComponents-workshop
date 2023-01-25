@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
 <body>
-    <my-component-test></my-component-test>
+    <template>
+        <p>No fear</p>
+    </template>
+    <h2 id="hh" titulo="hola">WOW I miss you</h2>
+    <my-component-test class="insta1" titulo="Hola Mundo" parrafo="Qué pasa tio?" parrafo2="= (">
+        <span slot="parraf1">La vida continua</span>
+        <span slot="parraf2">yo, nada</span>
+        <span slot="parraf3">para mi es</span>
+    </my-component-test>
+    <my-component-test titulo="Hola Mundo" parrafo="Qué pasa tio?" parrafo2="= (">
+        <span slot="parraf1">La vida continua</span>
+        <span slot="parraf2">yo, nada</span>
+        <span slot="parraf3">para mi es</span>
+    </my-component-test>
     <script type="module" src="../src/myElement.js"></script>
 </body>
 </html>
