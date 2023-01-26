@@ -4,27 +4,33 @@ class CardElement extends HTMLElement{
         this.attachShadow({mode: "open"});
 
     }
-
+    static get observedAttributes(){
+        return ["img", "title", "price", "description", "collection"];
+    }
+    attributeChangedCallback(attr, oldVal, newVal){
+        if(newVal !== oldVal)
+            this[attr] = newVal;
+    }
     getTemplate(){
         const template = document.createElement("template");
         template.innerHTML = `
         <article>
             <div class="product-view">
                 <span>Nike</span>
-                <img class="product-view__img" src="/proyecto/assets/nike-blue.png" alt="article">
+                <img class="product-view__img" src="${this.img}" alt="article">
             </div>
             <div class="product-info">
                 <h2 class="product-info__name">
-                    Nike Zoom 2023
+                    ${this.title}
                 </h2>
                 <p class="product-info__reference">
-                   Running Collection
+                    ${this.collection}
                 </p>
                 <p class="product-info__description">
-                    when an unknown printer took a galley of type and scrambled     it to make a type specimen book. It has survived not only   five centuries, but also the leap into electronic     typesetting, remaining essentially unchanged. It was    popularised in the 1960s with the release of Letraset sheets   containing Lorem Ipsum passages, and more recently with   desktop publishing software like Aldus PageMaker including    versions of Lorem Ipsum.
+                    ${this.description}
                 </p>
                 <div class="product-info__price">
-                    <p class="price">$250,00</p>
+                    <p class="price">${this.price}</p>
                     <buttom class="btn-buy">Buy Now</buttom>
                 </div>   
             </div>  
@@ -117,6 +123,9 @@ class CardElement extends HTMLElement{
                         width: 50%;
                         display: flex;
                         flex-direction: column;
+                    }
+                    .product-info__price {
+                        padding: 60px 8px 10px 8px; 
                     }
                 }
             </style>
